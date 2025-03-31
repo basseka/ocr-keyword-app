@@ -10,7 +10,7 @@ keyword = st.text_input("🔍 Entrez un mot-clé à rechercher")
 
 if uploaded_file and keyword:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Image sélectionnée", use_column_width=True)
+    st.image(image, caption="Image sélectionnée", use_container_width=True)
 
     reader = easyocr.Reader(['fr'], gpu=False)
     result = reader.readtext(image)
