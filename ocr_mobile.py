@@ -12,7 +12,7 @@ if uploaded_file and keyword:
     image = Image.open(uploaded_file)
     st.image(image, caption="Image sélectionnée", use_column_width=True)
 
-    reader = easyocr.Reader(['fr'])  # ou ['en'] si tu veux anglais
+    reader = easyocr.Reader(['fr'], gpu=False)
     result = reader.readtext(image)
 
     full_text = " ".join([item[1] for item in result])
