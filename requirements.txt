@@ -1,4 +1,4 @@
 streamlit
-easyocr
+easyocr==1.6.2
 pillow
-torch==1.13.1
+torch==1.10.0
