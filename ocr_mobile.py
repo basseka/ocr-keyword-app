@@ -1,7 +1,7 @@
 import streamlit as st
-import numpy as np
 from PIL import Image
 import easyocr
+import numpy as np
 
 st.set_page_config(page_title="OCR Mobile", layout="centered")
 st.title("📸 OCR – Recherche de mot-clé (EasyOCR)")
@@ -15,7 +15,7 @@ if uploaded_file is not None and keyword.strip():
         st.image(image, caption="Image sélectionnée", use_container_width=True)
 
         reader = easyocr.Reader(['fr'], gpu=False)
-        result = reader.readtext(np.array(image))
+        result = reader.readtext(np.array(image))  # ✅ conversion ici
 
         full_text = " ".join([item[1] for item in result])
         st.subheader("🧾 Texte détecté :")
@@ -30,3 +30,4 @@ if uploaded_file is not None and keyword.strip():
         st.error(f"❌ Une erreur est survenue lors du traitement : {str(e)}")
 else:
     st.info("📥 Veuillez importer une image et saisir un mot-clé.")
+
