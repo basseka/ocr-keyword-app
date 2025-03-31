@@ -14,7 +14,7 @@ if uploaded_file is not None and keyword.strip():
         image = Image.open(uploaded_file)
         st.image(image, caption="Image sélectionnée", use_container_width=True)
 
-        reader = easyocr.Reader(['fr'], gpu=False)
+        reader = easyocr.Reader([lang], gpu=False, verbose=False)
         result = reader.readtext(np.array(image))  # ✅ conversion ici
 
         full_text = " ".join([item[1] for item in result])
