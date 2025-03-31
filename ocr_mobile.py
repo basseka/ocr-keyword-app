@@ -44,7 +44,7 @@ if uploaded_file is not None and keyword.strip():
         st.image(image, caption="🖼️ Image sélectionnée", use_container_width=True)
 
         reader = easyocr.Reader([lang], gpu=False, verbose=False)
-        result = reader.readtext(np.array(image))
+        result = reader.readtext(np.array(image), detail=0, paragraph=True)
 
         full_text = " ".join([item[1] for item in result])
         st.markdown("<h4>🧾 Texte détecté :</h4>", unsafe_allow_html=True)
